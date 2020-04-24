@@ -132,7 +132,7 @@ sub command_line_loop {
 		if ($self->acquire_new_files()) {
 			# All good
 		} else {
-			confess "Could not acquire new files by running '$self->{config}->{procurer_script}'";
+            #confess "Could not acquire new files by running '$self->{config}->{procurer_script}'";
 		}
 	}
 	$self->{secretary}->empty_trash( file_type => $self->{config}->{type} );
@@ -180,7 +180,7 @@ sub command_line_loop {
 			if ($self->acquire_new_files()) {
 				# All good
 			} else {
-				confess "Could not acquire new files by running '$self->{config}->{procurer_script}'";
+                #confess "Could not acquire new files by running '$self->{config}->{procurer_script}'";
 			}
 		} else {
 			print "You have chosen not to procure new files, and we have evaluated all files. Exiting.\n";
