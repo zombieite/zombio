@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+use strict;
+
+my $pid = `ps aux | grep zombio_get | grep -v grep | grep perl | awk -F " +" '{print \$2}'`;
+chomp $pid;
+if ($pid) {
+	print "Killing pid '$pid'.\n";
+	system('kill', $pid);
+} else {
+	print "No process found to kill.\n";
+}

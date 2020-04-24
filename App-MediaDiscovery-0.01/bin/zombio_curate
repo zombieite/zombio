@@ -1,0 +1,51 @@
+#!/usr/bin/perl
+use strict;
+
+# this script is run when you want to curate files that have been newly downloaded.
+
+use Getopt::Long;
+use Config::General;
+use Data::Dumper;
+
+use App::MediaDiscovery::File::Curator;
+
+my %command_line_config;
+my $result = GetOptions 
+(
+    "search_terms=s"       => \$command_line_config{search_terms},
+    "sort=s"               => \$command_line_config{sort},
+    "genre=s"              => \$command_line_config{genre},
+    "max_count=i"          => \$command_line_config{max_count},
+    "acquire_new_files=i"  => \$command_line_config{acquire_new_files},
+    "content_directory=s"  => \$command_line_config{content_directory},
+    "evaluation_command=s" => \$command_line_config{evaluation_command},
+);
+
+# if they don't use the options syntax, GetOptions leaves us our params,
+# which we'll take as search terms
+if (@ARGV) 
+{
+    $command_line_config{search_terms} = join(',', @ARGV);
+}
+
+# IO::Prompter apparently hates anything in @ARGV
+@ARGV = ();
+
+my %config; # copied into this, in case we want to write code here to get config from file instead
+for my $key (keys %command_line_config)
+{
+    if (defined($command_line_config{$key}))
+    {
+        $config{$key} = $command_line_config{$key};
+    }
+}
+
+if ($config{search_terms})
+{
+    my @search_terms = split(',', $config{search_terms});
+    $config{search_terms} = \@search_terms;
+}
+
+my $evaluator = App::MediaDiscovery::File::Curator->new( verbose => 1, config => \%config );
+$evaluator->command_line_loop();
+

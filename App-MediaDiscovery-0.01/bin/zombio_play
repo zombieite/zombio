@@ -1,0 +1,67 @@
+#!/usr/bin/perl
+use strict;
+
+# this script is run when you want to listen to curated files. usually you'll just be listening, or skipping through,
+# or searching. but you still have the ability to delete, edit, or even re-curate into new directories.
+
+use Getopt::Long;
+use Data::Dumper;
+use File::Spec;
+
+use App::MediaDiscovery::File::Curator;
+use App::MediaDiscovery::File::Curator::Secretary;
+
+my $s = App::MediaDiscovery::File::Curator::Secretary->new();
+
+my %config;
+my $result = GetOptions 
+(
+    "search_terms=s"      => \$config{search_terms},
+    "sort=s"              => \$config{sort},
+    "genre=s"             => \$config{genre},
+    "max_count=i"         => \$config{max_count},
+    "content_directory=s" => \$config{content_directory},
+    "default_action=s"    => \$config{default_action},
+);
+my @search_terms;
+if (@ARGV)
+{
+    @search_terms = @ARGV;
+}
+if (!@search_terms)
+{
+    if ($config{search_terms})
+    {
+        @search_terms = split(',', $config{search_terms});
+    }
+}
+
+my $content_directory = $s->curated_directory();
+-d $content_directory or die "Could not find content directory '$content_directory'";
+
+# check to see if a playlist is being requested instead of a normal search term
+if (@search_terms == 1)
+{
+    my ($maybe_playlist) = @search_terms;
+    #print "Checking for playlist '$maybe_playlist'\n";
+    my $maybe_playlist_dir = File::Spec->catfile($s->lists_directory(), $maybe_playlist);
+    if (-d $maybe_playlist_dir)
+    {
+        print "Using playlist '$maybe_playlist'\n";
+        $content_directory = $maybe_playlist_dir;
+        @search_terms = ();
+		$config{sort} = 'filename';
+    }
+}
+
+$config{search_terms} = \@search_terms;
+
+$config{content_directory} ||= $content_directory;
+$config{default_action}    ||= 's';
+$config{sort}              ||= 'random';
+$config{player_only}         = 1;
+
+my $player = App::MediaDiscovery::File::Curator->new( verbose => 1, config => \%config, );
+
+$player->command_line_loop();
+

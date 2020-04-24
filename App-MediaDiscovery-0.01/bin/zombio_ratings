@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+use strict;
+
+use Data::Dumper;
+
+use App::MediaDiscovery::File::Curator::Scorekeeper;
+use App::MediaDiscovery::File::MP3;
+
+my ($artists_string) = @ARGV or die 'Must supply comma-separated artist names';
+my @artists = split(/\s*,\s*/, $artists_string);
+
+my $scorekeeper = App::MediaDiscovery::File::Curator::Scorekeeper->new();
+for my $artist (@artists) {
+	$artist = App::MediaDiscovery::File::MP3->clean($artist);
+	$artist =~ s/_/ /g;
+	$artist =~ s/-/ /g;
+	$artist =~ s/\./ /g; # clean with spaces won't be cleaning filenames by my naming conventions, so remove periods too
+	my $score = $scorekeeper->artist_rating( artist_name => $artist, );
+	print "$artist\t$score->{rating}\n";
+}
+
+

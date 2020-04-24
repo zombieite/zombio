@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+use strict;
+
+$| = 1;
+
+my ($verbose) = @ARGV;
+@ARGV = (); # IO::Prompter hates having stuff in @ARGV
+
+use App::MediaDiscovery::File::Curator::Procurer;
+App::MediaDiscovery::File::Curator::Procurer->new( verbose => $verbose, )->procure();
+

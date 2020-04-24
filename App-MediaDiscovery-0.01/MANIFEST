@@ -1,0 +1,16 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/App-MediaDiscovery.t
+lib/App/MediaDiscovery.pm
+lib/App/MediaDiscovery/HTTP.pm
+lib/App/MediaDiscovery/HTTP/GetAll.pm
+lib/App/MediaDiscovery/File/MP3.pm
+lib/App/MediaDiscovery/File/Curator.pm
+lib/App/MediaDiscovery/File/Curator/Secretary.pm
+lib/App/MediaDiscovery/File/Curator/Scorekeeper.pm
+lib/App/MediaDiscovery/File/Curator/Procurer.pm
+lib/App/MediaDiscovery/File/Curator/Procurer/FeedParser/HypeM.pm
+lib/App/MediaDiscovery/Directory.pm
+lib/App/MediaDiscovery/File.pm
