@@ -1,8 +1,6 @@
 # App-MediaDiscovery version 0.01
 
-Zombio is a music discovery application for Mac and Linux. It will help you find new mp3 blogs and artists that you like. Zombio downloads mp3s from mp3 blogs around the world. It works like a radio station that you listen to on your computer rather than online. To play songs, Zombio uses any music player that can be invoked from the command line. It currently uses the Creative Commons licensed RSS feed from wonderful site The Hype Machine (hypem.com) to find out what new music is out there.
-
-Zombio is set of Perl scripts and libraries that support them. Zombio is completely free and open-source. Zombio has no warranty.
+During the golden age of mp3 blogs (2005-2015) Zombio could be used to discover and download mp3s. It could still be used for that, but few mp3 blogs make their mp3s downloadable anymore. Nowadays I use it only as a music player and music organizer.
 
 ## Installing Zombio on a Mac
 
