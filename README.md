@@ -1,6 +1,6 @@
 # App-MediaDiscovery version 0.01
 
-During the golden age of mp3 blogs (2005-2015) Zombio could be used to discover and download mp3s. It could still be used for that, but few mp3 blogs make their mp3s downloadable anymore. Nowadays I use it only as a music player and music organizer.
+During the golden age of mp3 blogs (2005-2015) Zombio could be used to discover and download mp3s. It could still be used for that, but few mp3 blogs make their mp3s downloadable anymore. Nowadays I use it mostly as a music player and music organizer.
 
 ## Installing Zombio on a Mac
 
