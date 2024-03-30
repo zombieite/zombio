@@ -26,10 +26,11 @@ no make in /bin /sbin /usr/bin /usr/sbin
 
 To install Xcode: Apple Icon, App Store, search for Xcode, run installer (don't just copy the file to Applications). Retype "which make" in the Terminal to make sure it's working now.
 
-Run the following commands in the Terminal window.
+Run the following commands in the Terminal window in your home directory.
 
 
 ```
+cd
 perl -MCPAN -e shell # Let it configure itself as much as possible, or use the default configuration options for the most part. Choose local::lib as how to set it up.
 exit # Exits the CPAN shell
 cd zombio-master/App-MediaDiscovery-0.01/ # Navigates us into the Zombio installer code directory
