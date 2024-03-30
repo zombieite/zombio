@@ -34,7 +34,6 @@ Run the following commands in the Terminal window.
 ```
 perl -MCPAN -e shell # Let it configure itself as much as possible, or use the default configuration options for the most part. Choose local::lib as how to set it up.
 exit # Exits the CPAN shell
-source ~/.bashrc # Get the CPAN environment variables that were added to .bashrc
 cd zombio-master/App-MediaDiscovery-0.01/ # Navigates us into the Zombio installer code directory
 perl Makefile.PL
 make
