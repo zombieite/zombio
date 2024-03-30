@@ -47,11 +47,11 @@ sudo cpan install DBI
 sudo cpan install DBD::SQLite
 ```
 
-Then, to run it (replace "yourusername" below):
+Then, to run it (replace "$USER" below with your username):
 
 
 ```
-export PATH=$PATH:/Users/yourusername/zombio-master/App-MediaDiscovery-0.01/bin/ 
+export PATH=$PATH:/Users/$USER/zombio-master/App-MediaDiscovery-0.01/bin/ 
 
 zombio_play
 ```
