@@ -4,8 +4,6 @@ During the golden age of mp3 blogs (2005-2015) Zombio could be used to discover 
 
 ## Installing Zombio on a Mac
 
-I used to maintain this as something that other people could install, but at this point these instructions are mostly just to remind me what needs to be done to get the installation working. These instructions will probably not work anymore unless you're willing to read between the lines and fix errors that come up.
-
 Download Zombio via the "Code" button and ZIP link on the GitHub page. Right click the zombio-master.zip in your Download manager and choose "Show in Finder". Double click zombio-master.zip in the window that opens. This will unzip the archive and create a folder called zombio-master (with no ".zip"). Click the Finder icon (the blue face) and then choose File->New Finder Window. Find your home directory, the one with your username and a house beside it. You may have to navigate from Macintosh HD to Users to find it. Drag the zombio-master folder into that home directory window.
 
 Open up a Terminal (in Macintosh HD, Applications, Utilities). Type:
